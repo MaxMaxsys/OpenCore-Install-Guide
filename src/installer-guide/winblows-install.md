@@ -1,14 +1,12 @@
 # Создание установщика в Windows
 
-* Поддерживаемая версия: 0.6.9
+* Поддерживаемая версия: от 0.6.9
 
 В то время как вам не нужна чистая установка macOS чтобы использовать OpenCore, некоторые пользователи предпочитают иметь свежую версию ОС с обновлением их Boot Manager.
 
 Чтобы начать, вам нужно:
 
-* USB флешка объемом 4 Гб
-
-* Для USB-накопителей объемом свыше 16 Гб для форматирования в FAT32 используйте [Rufus](#через-rufus)
+* USB флешка объемом 8 Гб минимум
 
 * [macrecovery.py](https://github.com/acidanthera/OpenCorePkg/releases)
   * Требуется [установленный Python](https://www.python.org/downloads/)
@@ -19,7 +17,7 @@
 
 ![](../../img/installer-guide/winblows-install-md/file-path.png)
 
-Отсюда, вы захотите открыть Командную Строку и "cd" в папку macrecovery, путь которой мы скопировали ранее:
+Отсюда, вы открывайте Командную Строку и "cd" в папку macrecovery, путь которой мы скопировали ранее:
 
 ```sh
 cd Вставьте_Путь_К_Папке
@@ -31,40 +29,48 @@ cd Вставьте_Путь_К_Папке
 
 ```sh
 # Lion(10.7):
-python macrecovery.py -b Mac-2E6FAB96566FE58C -m 00000000000F25Y00 download
-python macrecovery.py -b Mac-C3EC7CD22292981F -m 00000000000F0HM00 download
+macrecovery.py -b Mac-2E6FAB96566FE58C -m 00000000000F25Y00 download
+macrecovery.py -b Mac-C3EC7CD22292981F -m 00000000000F0HM00 download
 
 # Mountain Lion(10.8):
-python macrecovery.py -b Mac-7DF2A3B5E5D671ED -m 00000000000F65100 download
+macrecovery.py -b Mac-7DF2A3B5E5D671ED -m 00000000000F65100 download
 
 # Mavericks(10.9):
-python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000FNN100 download
+macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000FNN100 download
 
 # Yosemite(10.10):
-python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000GDVW00 download
+macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000GDVW00 download
 
 # El Capitan(10.11):
-python macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000GQRX00 download
+macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000GQRX00 download
 
 # Sierra(10.12):
-python macrecovery.py -b Mac-77F17D7DA9285301 -m 00000000000J0DX00 download
+macrecovery.py -b Mac-77F17D7DA9285301 -m 00000000000J0DX00 download
 
 # High Sierra(10.13)
-python macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000J80300 download
-python macrecovery.py -b Mac-BE088AF8C5EB4FA2 -m 00000000000J80300 download
+macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000J80300 download
+macrecovery.py -b Mac-BE088AF8C5EB4FA2 -m 00000000000J80300 download
 
 # Mojave(10.14)
-python macrecovery.py -b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 download
+macrecovery.py -b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 download
 
 # Catalina(10.15)
-python macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download
+macrecovery.py -b Mac-CFF7D910A743CAAF -m 00000000000PHCD00 download
+macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download
+
+# Big Sur(11)
+macrecovery.py -b Mac-2BD1B31983FE1663 -m 00000000000000000 download
+
+# Monterey(12)
+macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000000000 download
 
 # Последняя версия
-# т.е. Big Sur(11)
-python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000000000 download
+# т.е Ventura(13)
+macrecovery.py -b Mac-B4831CEBD52A0C4C -m 00000000000000000 -os latest download
+macrecovery.py -b Mac-B4831CEBD52A0C4C -m <реальный MLB> -os latest
 ```
 
-* **Примечание к macOS 11, Big Sur**: Так как эта ОС совершенна новая, есть некоторые проблемы с определенными системами, которые нужно решить. Для получения дополнительной информации, смотрите здесь: [OpenCore и macOS 11: Big Sur](../extras/big-sur/README.md)
+* **Примечание к macOS 11, Big Sur**: Так как эта ОС имеются проблемы с определенными системами, которые нужно решить. Для получения дополнительной информации, смотрите здесь: [OpenCore и macOS 11: Big Sur](../extras/big-sur/README.md)
   * Для начинающих пользователей, мы рекомендуем macOS 10.15, Catalina
 * **Примечание к GPU Nvidia**: напоминание о том, чтобы проверить, поддерживает ли ваше оборудование новые ОС, смотрите [Аппаратные ограничения](../macos-limits.md)
 
@@ -84,13 +90,13 @@ python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000000000 download
 
 * [Через Управление Дисками](#через-управление-дисками)
   * На базе графического интерфейса, самый простой вариант
-  * Поддерживаются системы только с UEFI(напр. 2012 г.+)
+  * Поддерживаются системы только с UEFI(с 2012 г.)
 * [Через Rufus](#через-rufus)
   * На базе графического интерфейса, самый простой вариант
-  * Для USB-накопителей большего размера (16Гб+)
+  * Для USB-накопителей большего размера (8Гб+)
 * [Через diskpart](#через-diskpart)
   * На базе командной строки, требует немного больше работы
-  * Требуется для устаревших (Legacy) систем (т.е. не UEFI, до 2012 г.)
+  * Требуется для устаревших (Legacy) систем (т.е. мат. платы не имеющую UEFI до 2012 г.)
 
 ### Через Управление Дисками
 
